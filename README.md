@@ -1,17 +1,7 @@
 # bookkia
 
-A new Flutter project.
 
-## Getting Started
+<img width="390" height="844" alt="localhost_60024_(iPhone 16) (1)" src="https://github.com/user-attachments/assets/08a597dc-d72e-4c2f-bd29-45af1696cad7" />
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="390" height="844" alt="localhost_60024_(iPhone 16)" src="https://github.com/user-attachments/assets/c4a13fe7-b031-4fd8-b3dc-4e6a3fc4ccf1" />
