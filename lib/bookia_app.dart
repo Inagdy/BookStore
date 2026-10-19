@@ -21,7 +21,7 @@ class BookiaApp extends StatelessWidget {
        theme: ThemeData(fontFamily: "DM",
           scaffoldBackgroundColor: AppColors.backGroundColor
        ),
-       initialRoute: AppRoute.welcome_screen,
+       initialRoute: AppRoute.welcomeScreen,
       onGenerateRoute: AppRouter.onGeneraRoute
       ),
     );

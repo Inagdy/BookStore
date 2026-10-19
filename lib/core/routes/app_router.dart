@@ -20,8 +20,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => LoginSceen());
       case AppRoute.homeScreen:
         return MaterialPageRoute(builder: (_) => HomeScreen());
-      case AppRoute.welcome_screen:
+      case AppRoute.welcomeScreen:
         return MaterialPageRoute(builder: (_) => WelcomeScreen());
+      default:
+        return null;
     }
   }
 }

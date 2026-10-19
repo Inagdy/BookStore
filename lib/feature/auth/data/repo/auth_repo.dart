@@ -3,7 +3,10 @@ import 'package:dio/dio.dart';
 class AuthRepo {
   static Dio dio = Dio();
 
-  static login({required String email, required String password}) async {
+  static Future<bool> login({
+    required String email,
+    required String password,
+  }) async {
     try {
       final response = await dio.post(
         "https://codingarabic.eraapro.com/api/login",

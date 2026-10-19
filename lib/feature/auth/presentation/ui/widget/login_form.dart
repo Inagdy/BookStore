@@ -25,6 +25,7 @@ class _LoginFormState extends State<LoginForm> {
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
@@ -56,9 +57,10 @@ class _LoginFormState extends State<LoginForm> {
                 if (v == null || v.isEmpty) {
                   return "Email is required";
                 }
-                if (!AppValidator.isEmailValid(v ?? "")) {
+                if (!AppValidator.isEmailValid(v)) {
                   return "Please return Valid Email";
                 }
+                return null;
               },
               hintText: "Enter your email",
               controller: emailController,
@@ -71,6 +73,7 @@ class _LoginFormState extends State<LoginForm> {
                 } else if (v.length <= 6) {
                   return "Password must be more than 6 char";
                 }
+                return null;
               },
               hintText: "Enter your password",
               isPassword: true,
