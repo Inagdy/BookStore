@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppButton extends StatelessWidget {
-  final String button_Text;
+  final String buttonText;
   final Color? bgColor;
   final Color? textColor;
   final Function()? onTap;
-  const AppButton({super.key, required this.button_Text, this.bgColor,this.textColor, this.onTap});
+  const AppButton({super.key, required this.buttonText, this.bgColor,this.textColor, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class AppButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.r),
         ),
         child: Text(
-          button_Text,
+          buttonText,
           style: AppTextStyle().hitTextStyle.copyWith(color:textColor?? Colors.white),
         ),
       ),

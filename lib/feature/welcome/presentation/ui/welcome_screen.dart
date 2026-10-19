@@ -1,6 +1,7 @@
 import 'package:bookkia/core/routes/app_route.dart';
 import 'package:bookkia/core/theme/app_text_style.dart';
 import 'package:bookkia/core/widget/main_button.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,16 +23,29 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           children: [
             135.verticalSpace,
+            IconButton(
+              onPressed: () {
+                if (context.locale.languageCode == "ar") {
+                  context.setLocale(Locale("en"));
+                } else {
+                  context.setLocale(Locale("ar"));
+                }
+              },
+              icon: Icon(Icons.language),
+            ),
             Image.asset("assests/images/spash.png"),
             28.verticalSpace,
-            Text("Order Your Book Now!", style: AppTextStyle().hitTextStyle),
+            Text("Order Your Book Now!", style: AppTextStyle().font30Regular.copyWith(fontSize: 20.sp)),
             Spacer(),
-            AppButton(button_Text: 'Login' ,onTap: () {
-              Navigator.pushNamed(context, AppRoute.loginScreen);
-            },),
+            AppButton(
+              buttonText: 'Login',
+              onTap: () {
+                Navigator.pushNamed(context, AppRoute.loginScreen);
+              },
+            ),
             20.verticalSpace,
             AppButton(
-              button_Text: 'Register',
+              buttonText: 'Register',
               bgColor: Colors.white,
               textColor: Colors.black,
             ),
