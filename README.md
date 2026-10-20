@@ -10,3 +10,6 @@
 
 
 <img width="390" height="844" alt="Screenshot_1792450202" src="https://github.com/user-attachments/assets/5abdf242-7c96-4b52-8a27-914604e861b2" />
+
+
+<img width="390" height="844" alt="localhost_59162_(iPhone 16 Pro Max)" src="https://github.com/user-attachments/assets/e7c2dcde-9478-470d-ab64-8dc4888304b1" />
