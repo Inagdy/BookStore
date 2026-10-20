@@ -13,3 +13,9 @@
 
 
 <img width="390" height="844" alt="localhost_59162_(iPhone 16 Pro Max)" src="https://github.com/user-attachments/assets/e7c2dcde-9478-470d-ab64-8dc4888304b1" />
+
+<img width="390" height="844" alt="localhost_56874_(Pixel 10)" src="https://github.com/user-attachments/assets/acad4faf-ec08-4a3b-8287-2b2c54f29c1d" />
+
+<img width="390" height="844" alt="localhost_56874_(Pixel 10) (1)" src="https://github.com/user-attachments/assets/ce0cdcc8-115f-4d2d-9817-5813521bcbc5" />
+
+
