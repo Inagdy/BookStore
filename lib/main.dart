@@ -7,7 +7,7 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   runApp(
     EasyLocalization(
-      supportedLocales: [Locale('en'), Locale('de')],
+      supportedLocales: [Locale('en'), Locale('ar')],
       path: 'assests/translations',
       fallbackLocale: Locale('en'),
       child: BookiaApp(),

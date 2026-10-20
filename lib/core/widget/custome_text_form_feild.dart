@@ -8,7 +8,13 @@ class CustomeTextFormFeild extends StatefulWidget {
   final bool isPassword;
   final String? Function(String?)? validator;
   final TextEditingController controller;
-  const CustomeTextFormFeild({super.key, this.hintText,this.isPassword=false, this.validator, required this.controller});
+  const CustomeTextFormFeild({
+    super.key,
+    this.hintText,
+    this.isPassword = false,
+    this.validator,
+    required this.controller,
+  });
 
   @override
   State<CustomeTextFormFeild> createState() => _CustomeTextFormFeildState();
@@ -21,22 +27,23 @@ class _CustomeTextFormFeildState extends State<CustomeTextFormFeild> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controller,
-      validator:widget.validator,
+      validator: widget.validator,
       obscureText: widget.isPassword && isobscure,
       onTapOutside: (v) {
         FocusScope.of(context).unfocus();
       },
       cursorColor: AppColors.mainColor,
       decoration: InputDecoration(
-        suffixIcon: widget.isPassword?InkWell(
-          onTap: () {
-            setState(() {
-              
-            isobscure =! isobscure;
-            });
-
-          },
-          child: Icon(Icons.visibility)):null,
+        suffixIcon: widget.isPassword
+            ? InkWell(
+                onTap: () {
+                  setState(() {
+                    isobscure = !isobscure;
+                  });
+                },
+                child: Icon(Icons.visibility),
+              )
+            : null,
         fillColor: Colors.white,
         filled: true,
         hintStyle: AppTextStyle().hitTextStyle,
