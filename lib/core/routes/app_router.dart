@@ -1,6 +1,7 @@
 import 'package:bookkia/core/routes/app_route.dart';
 import 'package:bookkia/feature/Home/presentation/ui/home_screen.dart';
 import 'package:bookkia/feature/auth/presentation/cubit/auth_cubit.dart';
+import 'package:bookkia/feature/auth/presentation/cubit/register_cubit.dart';
 import 'package:bookkia/feature/auth/presentation/login_sceen.dart';
 import 'package:bookkia/feature/auth/presentation/registerd_screen.dart';
 import 'package:bookkia/feature/welcome/presentation/ui/welcome_screen.dart';
@@ -22,7 +23,12 @@ class AppRouter {
       case AppRoute.welcomeScreen:
         return MaterialPageRoute(builder: (_) => WelcomeScreen());
       case AppRoute.registerScreen:
-        return MaterialPageRoute(builder: (_) => RegisterdScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => RegisterCubit(),
+            child: RegisterdScreen(),
+          ),
+        );
       default:
         return null;
     }

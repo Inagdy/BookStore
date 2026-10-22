@@ -14,15 +14,18 @@ class BookiaApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      child:  MaterialApp(
-       localizationsDelegates: context.localizationDelegates,
-       supportedLocales: context.supportedLocales,
-       locale: context.locale,
-       theme: ThemeData(fontFamily: "DM",
-          scaffoldBackgroundColor: AppColors.backGroundColor
-       ),
-       initialRoute: AppRoute.welcomeScreen,
-      onGenerateRoute: AppRouter.onGeneraRoute
+      child: MaterialApp(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        theme: ThemeData(
+          fontFamily: "DM",
+          scaffoldBackgroundColor: AppColors.backGroundColor,
+        ),
+        debugShowCheckedModeBanner: false,
+
+        initialRoute: AppRoute.welcomeScreen,
+        onGenerateRoute: AppRouter.onGeneraRoute,
       ),
     );
   }
