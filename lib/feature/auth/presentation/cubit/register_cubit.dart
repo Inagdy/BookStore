@@ -1,13 +1,13 @@
-import 'package:bloc/bloc.dart';
 import 'package:bookkia/feature/auth/data/repo/auth_repo.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
 
-  register({
+   void register({
     required String userName,
     required String email,
     required String password,
@@ -21,9 +21,9 @@ class RegisterCubit extends Cubit<RegisterState> {
       passwordConfirmation: passwordConfirmation,
     );
     if (response) {
-      RegisterSuccessState();
+      emit(RegisterSuccessState());
     } else {
-      RegisterErrorState();
-    };   
+      emit(RegisterErrorState());
+    } 
   }
 }

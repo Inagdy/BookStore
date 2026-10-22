@@ -4,19 +4,14 @@ import 'package:bookkia/core/utils/app_validator.dart';
 import 'package:bookkia/core/widget/auth_button_text.dart';
 import 'package:bookkia/core/widget/custome_text_form_feild.dart';
 import 'package:bookkia/core/widget/main_button.dart';
-import 'package:bookkia/feature/auth/data/repo/auth_repo.dart';
-import 'package:bookkia/feature/auth/presentation/cubit/auth_cubit.dart';
 import 'package:bookkia/feature/auth/presentation/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterdForm extends StatefulWidget {
-  RegisterdForm({super.key});
-  var userNameController = TextEditingController();
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
-  var confirmPasswordController = TextEditingController();
+  const RegisterdForm({super.key});
+
 
   @override
   State<RegisterdForm> createState() => _RegisterdFormState();
@@ -24,15 +19,10 @@ class RegisterdForm extends StatefulWidget {
 
 class _RegisterdFormState extends State<RegisterdForm> {
   final _formKey = GlobalKey<FormState>();
-
-  @override
-  void dispose() {
-    widget.userNameController.dispose();
-    widget.emailController.dispose();
-    widget.passwordController.dispose();
-    widget.confirmPasswordController.dispose();
-    super.dispose();
-  }
+  var userNameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  var confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +38,7 @@ class _RegisterdFormState extends State<RegisterdForm> {
             ),
           );
         } else if (state is RegisterSuccessState) {
-          Navigator.pushNamed(context, AppRoute.loginScreen);
+          Navigator.pushNamed(context, AppRoute.homeScreen);
         } else {
           Navigator.pop(context);
           showDialog(
@@ -63,7 +53,7 @@ class _RegisterdFormState extends State<RegisterdForm> {
           children: [
             CustomeTextFormFeild(
               hintText: "Username",
-              controller: widget.userNameController,
+              controller: userNameController,
               validator: (v) {
                 if (v == null || v.isEmpty) {
                   return "User Name is required";
@@ -77,7 +67,7 @@ class _RegisterdFormState extends State<RegisterdForm> {
             11.verticalSpace,
             CustomeTextFormFeild(
               hintText: "Email",
-              controller: widget.emailController,
+              controller: emailController,
               validator: (v) {
                 if (v == null || v.isEmpty) {
                   return "Email is required";
@@ -91,7 +81,7 @@ class _RegisterdFormState extends State<RegisterdForm> {
             11.verticalSpace,
             CustomeTextFormFeild(
               hintText: "Password",
-              controller: widget.passwordController,
+              controller: passwordController,
               isPassword: true,
               validator: (v) {
                 if (v == null || v.isEmpty) {
@@ -118,13 +108,13 @@ class _RegisterdFormState extends State<RegisterdForm> {
             11.verticalSpace,
             CustomeTextFormFeild(
               hintText: "Confirm password",
-              controller: widget.confirmPasswordController,
+              controller: confirmPasswordController,
               isPassword: true,
               validator: (v) {
                 if (v == null || v.isEmpty) {
                   return "Confirm Password is required";
                 }
-                if (v != widget.passwordController.text) {
+                if (v != passwordController.text) {
                   return "password and confirm Password is not equal";
                 }
                 return null;
@@ -138,10 +128,10 @@ class _RegisterdFormState extends State<RegisterdForm> {
               onTap: () {
                 if(_formKey.currentState!.validate()){
                   context.read<RegisterCubit>().register(
-                    userName: widget.userNameController.text,
-                    email: widget.emailController.text,
-                    password: widget.passwordController.text,
-                    passwordConfirmation: widget.confirmPasswordController.text,
+                    userName: userNameController.text,
+                    email: emailController.text,
+                    password: passwordController.text,
+                    passwordConfirmation: confirmPasswordController.text,
                   );
                 }
               },
