@@ -1,6 +1,8 @@
 import 'package:bookkia/core/routes/app_route.dart';
 import 'package:bookkia/core/routes/app_router.dart';
+import 'package:bookkia/core/services/locale/local_server.dart';
 import 'package:bookkia/core/theme/app_colors.dart';
+import 'package:bookkia/core/utils/app_constance.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,9 +26,17 @@ class BookiaApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
 
-        initialRoute: AppRoute.welcomeScreen,
+        initialRoute: initPage(),
         onGenerateRoute: AppRouter.onGeneraRoute,
       ),
     );
+  }
+
+  String initPage() {
+    if (LocaleHlper.prefs?.getString(AppConstance.userToken) != null) {
+      return AppRoute.homeScreen;
+    } else {
+      return AppRoute.welcomeScreen;
+    }
   }
 }

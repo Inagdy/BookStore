@@ -1,3 +1,5 @@
+import 'package:bookkia/core/services/locale/local_server.dart';
+import 'package:bookkia/core/utils/app_constance.dart';
 import 'package:dio/dio.dart';
 
 class AuthRepo {
@@ -13,6 +15,8 @@ class AuthRepo {
         data: {"email": email, "password": password},
       );
       if (response.statusCode == 200) {
+        String? token = response.data["data"]["token"];
+        saveToken(token);
         return true;
       } else {
         return false;
@@ -21,6 +25,10 @@ class AuthRepo {
       return false;
     }
   }
+
+static saveToken(String? token)async{
+  await LocaleHlper.prefs?.setString(AppConstance.userToken, token?? "");
+}
 
   static Future<bool> register({
     required String userName,
