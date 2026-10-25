@@ -1,4 +1,5 @@
 import 'package:bookkia/core/routes/app_route.dart';
+import 'package:bookkia/feature/Home/cubit/home_cubit.dart';
 import 'package:bookkia/feature/Home/presentation/ui/home_screen.dart';
 import 'package:bookkia/feature/auth/presentation/cubit/auth_cubit.dart';
 import 'package:bookkia/feature/auth/presentation/cubit/register_cubit.dart';
@@ -19,7 +20,12 @@ class AppRouter {
           ),
         );
       case AppRoute.homeScreen:
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => HomeCubit()..getBestsellerBooks(),
+            child: HomeScreen(),
+          ),
+        );
       case AppRoute.welcomeScreen:
         return MaterialPageRoute(builder: (_) => WelcomeScreen());
       case AppRoute.registerScreen:

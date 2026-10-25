@@ -26,8 +26,8 @@ class AuthRepo {
     }
   }
 
-static saveToken(String? token)async{
-  await LocaleHlper.prefs?.setString(AppConstance.userToken, token?? "");
+static Future<void> saveToken(String? token) async {
+  await LocaleHlper.prefs?.setString(AppConstance.userToken, token ?? "");
 }
 
   static Future<bool> register({
@@ -46,7 +46,7 @@ static saveToken(String? token)async{
           "password_confirmation": passwordConfirmation,
         },
       );
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         return true;
       } else {
         return false;
