@@ -12,7 +12,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class RegisterdForm extends StatefulWidget {
   const RegisterdForm({super.key});
 
-
   @override
   State<RegisterdForm> createState() => _RegisterdFormState();
 }
@@ -23,6 +22,8 @@ class _RegisterdFormState extends State<RegisterdForm> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var confirmPasswordController = TextEditingController();
+  var addressController = TextEditingController();
+  var cityController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -120,18 +121,29 @@ class _RegisterdFormState extends State<RegisterdForm> {
                 return null;
               },
             ),
+            11.verticalSpace,
+
+            CustomeTextFormFeild(
+              controller: addressController,
+              hintText: "Address",
+            ),
+            11.verticalSpace,
+            CustomeTextFormFeild(controller: cityController, hintText: "City"),
+
             30.verticalSpace,
             AppButton(
               buttonText: "Register",
               bgColor: AppColors.mainColor,
               textColor: AppColors.backGroundColor,
               onTap: () {
-                if(_formKey.currentState!.validate()){
+                if (_formKey.currentState!.validate()) {
                   context.read<RegisterCubit>().register(
                     userName: userNameController.text,
                     email: emailController.text,
                     password: passwordController.text,
                     passwordConfirmation: confirmPasswordController.text,
+                    address: addressController.text,
+                    city: cityController.text,
                   );
                 }
               },
@@ -141,7 +153,7 @@ class _RegisterdFormState extends State<RegisterdForm> {
               leftText: "Already have an account ? ",
               rigthText: " Login Now",
               onRigthTap: () {
-                Navigator.pushNamed(context, AppRoute.loginScreen);
+                Navigator.pushNamed(context, AppRoute.homeScreen);
               },
             ),
             27.verticalSpace,

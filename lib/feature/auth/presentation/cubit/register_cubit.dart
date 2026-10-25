@@ -12,6 +12,8 @@ class RegisterCubit extends Cubit<RegisterState> {
     required String email,
     required String password,
     required String passwordConfirmation,
+    required String address,
+    required String city,
   }) async {
     emit(RegisterLoadingState());
     final response = await AuthRepo.register(
@@ -19,6 +21,8 @@ class RegisterCubit extends Cubit<RegisterState> {
       email: email,
       password: password,
       passwordConfirmation: passwordConfirmation,
+      address:address,
+      city:city,
     );
     if (response) {
       emit(RegisterSuccessState());

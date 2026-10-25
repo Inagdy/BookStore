@@ -17,7 +17,8 @@ class _RegisterdScreenState extends State<RegisterdScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backGroundColor,
-      body: Padding(
+      body: SingleChildScrollView(
+        child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 22.0.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,6 +35,7 @@ class _RegisterdScreenState extends State<RegisterdScreen> {
           ],
         ),
       ),
+      )
     );
   } 
 }

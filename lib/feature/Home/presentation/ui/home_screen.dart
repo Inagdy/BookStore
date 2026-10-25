@@ -9,41 +9,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
- BlocBuilder<HomeCubit, HomeState>(
-                builder: (context, state) {
-                  if (state is GetBestSaller_loadingState) {
-                    return CircularProgressIndicator();
-                  } else if (state is GetBestSaller_SuccesState) {
-                    return Expanded(
-                      child: GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: .50,
-                          mainAxisSpacing: 10.h,
-                          crossAxisSpacing: 18.w,
-                        ),
-                      
-                        itemBuilder: (context, index) => BookItem(
-                          products: state.products![index],
-                        ),
-                        itemCount: state.products?.length,
-                      ),
-                    );
-                  } else {
-                    return Center( child: Text("error"));
-                  }
-                },
-              ),
-
-          ],
-        ),
-      ),
-    );
+    return const Placeholder();
   }
 }

@@ -35,6 +35,8 @@ static Future<void> saveToken(String? token) async {
     required String email,
     required String password,
     required String passwordConfirmation,
+    required String address,
+    required String city,
   }) async {
     try {
       final response = await dio.post(
@@ -44,6 +46,8 @@ static Future<void> saveToken(String? token) async {
           "email": email,
           "password": password,
           "password_confirmation": passwordConfirmation,
+          "address": address,
+          "city": city,
         },
       );
       if (response.statusCode == 201) {
