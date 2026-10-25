@@ -10,37 +10,52 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Image.asset("assests/images/spash.png", width: 99.w, height: 30.h),
+            Spacer(),
+            Icon(Icons.search),
+          ],
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
- BlocBuilder<HomeCubit, HomeState>(
-                builder: (context, state) {
-                  if (state is GetBestSaller_loadingState) {
-                    return CircularProgressIndicator();
-                  } else if (state is GetBestSaller_SuccesState) {
-                    return Expanded(
-                      child: GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: .50,
-                          mainAxisSpacing: 10.h,
-                          crossAxisSpacing: 18.w,
-                        ),
-                      
-                        itemBuilder: (context, index) => BookItem(
-                          products: state.products![index],
-                        ),
-                        itemCount: state.products?.length,
-                      ),
-                    );
-                  } else {
-                    return Center( child: Text("error"));
-                  }
-                },
+            Align(
+              alignment: AlignmentGeometry.centerLeft,
+              child: Text(
+                "Best Saller",
+                style: TextStyle(fontWeight: FontWeight(400), fontSize: 24.sp ),
               ),
+            ),
+            BlocBuilder<HomeCubit, HomeState>(
+              builder: (context, state) {
+                if (state is GetBestSaller_loadingState) {
+                  return CircularProgressIndicator();
+                } else if (state is GetBestSaller_SuccesState) {
+                  return Expanded(
+                    child: GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: .50,
+                        mainAxisSpacing: 10.h,
+                        crossAxisSpacing: 18.w,
+                      ),
 
+                      itemBuilder: (context, index) =>
+                          BookItem(products: state.products![index]),
+                      itemCount: state.products?.length,
+                    ),
+                  );
+                } else {
+                  return Center(child: Text("error"));
+                }
+              },
+            ),
           ],
         ),
       ),
