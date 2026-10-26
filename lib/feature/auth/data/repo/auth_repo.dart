@@ -1,21 +1,21 @@
+import 'package:bookkia/core/networking/api_endpoint.dart';
+import 'package:bookkia/core/networking/dio_factore.dart';
 import 'package:bookkia/core/services/locale/local_server.dart';
 import 'package:bookkia/core/utils/app_constance.dart';
-import 'package:dio/dio.dart';
 
 class AuthRepo {
-  static Dio dio = Dio();
 
   static Future<bool> login({
     required String email,
     required String password,
   }) async {
     try {
-      final response = await dio.post(
-        "https://codingarabic.eraapro.com/api/login",
+      final response = await DioFactore.dio?.post(
+        ApiEndpoint.login,
         data: {"email": email, "password": password},
       );
-      if (response.statusCode == 200) {
-        String? token = response.data["data"]["token"];
+      if (response?.statusCode == 200) {
+        String? token = response?.data["data"]["token"];
         saveToken(token);
         return true;
       } else {
@@ -39,8 +39,8 @@ static Future<void> saveToken(String? token) async {
     required String city,
   }) async {
     try {
-      final response = await dio.post(
-        "https://codingarabic.eraapro.com/api/register",
+      final response = await DioFactore.dio?.post(
+        ApiEndpoint.register,
         data: {
           "name": userName,
           "email": email,
@@ -50,7 +50,7 @@ static Future<void> saveToken(String? token) async {
           "city": city,
         },
       );
-      if (response.statusCode == 201) {
+      if (response?.statusCode == 201) {
         return true;
       } else {
         return false;

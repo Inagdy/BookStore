@@ -9,10 +9,11 @@ class BookItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final imageUrl = products?.image;
+
     return Container(
       padding: EdgeInsets.all(20.r),
       width: 163.w,
-
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.r),
         border: Border.all(color: AppColors.borderColor),
@@ -22,19 +23,30 @@ class BookItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(12.r),
-            child: Image.network(
-              products?.image??" ",
-              width: 140.w,
-              height: 175.h,
-              fit: BoxFit.cover,
-            ),
+            child: (imageUrl != null && imageUrl.isNotEmpty)
+                ? Image.network(
+                    imageUrl,
+                    width: 140.w,
+                    height: 175.h,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) => Container(
+                      width: 140.w,
+                      height: 175.h,
+                      color: Colors.grey.shade300,
+                    ),
+                  )
+                : Container(
+                    width: 140.w,
+                    height: 175.h,
+                    color: Colors.grey.shade300,
+                  ),
           ),
           20.verticalSpace,
-          Text(products?.name??""),
+          Text(products?.name ?? ""),
           8.verticalSpace,
           Row(
             children: [
-              Expanded(child: Text(products?.price??'')),
+              Expanded(child: Text(products?.price ?? '')),
               IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart)),
             ],
           ),
