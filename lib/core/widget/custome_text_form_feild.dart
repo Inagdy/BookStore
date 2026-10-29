@@ -8,12 +8,15 @@ class CustomeTextFormFeild extends StatefulWidget {
   final bool isPassword;
   final String? Function(String?)? validator;
   final TextEditingController controller;
+  final void Function(String?)? onChanged;
+  final bool? autofocus;
   const CustomeTextFormFeild({
     super.key,
     this.hintText,
     this.isPassword = false,
     this.validator,
     required this.controller,
+    this.autofocus, this.onChanged,
   });
 
   @override
@@ -26,6 +29,8 @@ class _CustomeTextFormFeildState extends State<CustomeTextFormFeild> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: widget.onChanged,
+      autofocus: widget.autofocus ?? false,
       controller: widget.controller,
       validator: widget.validator,
       obscureText: widget.isPassword && isobscure,

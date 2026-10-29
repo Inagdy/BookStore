@@ -1,9 +1,12 @@
+import 'package:bookkia/core/routes/app_route.dart';
 import 'package:bookkia/feature/Home/cubit/home_cubit.dart';
 import 'package:bookkia/feature/Home/data/model/books_model.dart';
 import 'package:bookkia/feature/Home/presentation/ui/widget/book_item.dart';
+import 'package:bookkia/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,9 +20,14 @@ class HomeScreen extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.asset("assests/images/spash.png", width: 99.w, height: 30.h),
+            Assets.assests.images.spash.image(width: 99.w, height: 30.h),
             Spacer(),
-            Icon(Icons.search),
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, AppRoute.searchScreen);
+              },
+              child: SvgPicture.asset(Assets.assests.icons.searchNormal),
+            ),
           ],
         ),
       ),
