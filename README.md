@@ -20,5 +20,12 @@
 
 <img width="390" height="844" alt="localhost_52611_(iPhone 16)" src="https://github.com/user-attachments/assets/5220f483-8006-43f2-beb0-686397db6c2c" />
 
+<img wiwidth="390" height="844" alt="localhost_57401_(iPhone 16)" src="https://github.com/user-attachments/assets/5595e15f-7b0e-473e-b789-275924ca34a7" />
+
+<img width="390" height="844" alt="localhost_58072_(iPhone 16)" src="https://github.com/user-attachments/assets/df9b0eca-dfa1-4733-a119-3a73363f31a9" />
+
+<img width="390" height="844" alt="localhost_58072_(iPhone 16) (1)" src="https://github.com/user-attachments/assets/219c6869-6aae-46c2-a874-5b14f7e69f95" />
+
+
 
 
