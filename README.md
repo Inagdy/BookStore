@@ -18,4 +18,7 @@
 
 <img width="390" height="844" alt="localhost_56874_(Pixel 10) (1)" src="https://github.com/user-attachments/assets/ce0cdcc8-115f-4d2d-9817-5813521bcbc5" />
 
+<img width="390" height="844" alt="localhost_52611_(iPhone 16)" src="https://github.com/user-attachments/assets/5220f483-8006-43f2-beb0-686397db6c2c" />
+
+
 
