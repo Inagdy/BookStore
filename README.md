@@ -1,3 +1,4 @@
+<img width="1080" height="2340" alt="Screenshot_1793501796" src="https://github.com/user-attachments/assets/5a4573cc-1daa-44e5-bb86-fe91c833611d" />
 # bookkia
 
 
@@ -26,6 +27,7 @@
 
 <img width="390" height="844" alt="localhost_58072_(iPhone 16) (1)" src="https://github.com/user-attachments/assets/219c6869-6aae-46c2-a874-5b14f7e69f95" />
 
+<img width="390" height="844" alt="Screenshot_1793501796" src="https://github.com/user-attachments/assets/031859a2-7353-4312-8f0e-d51e62141f08" />
 
 
 
