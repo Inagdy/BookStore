@@ -27,11 +27,23 @@ class $AssestsGen {
 class $AssestsIconsGen {
   const $AssestsIconsGen();
 
+  /// File path: assests/icons/bookmark.svg
+  String get bookmark => 'assests/icons/bookmark.svg';
+
+  /// File path: assests/icons/category.svg
+  String get category => 'assests/icons/category.svg';
+
+  /// File path: assests/icons/home.svg
+  String get home => 'assests/icons/home.svg';
+
+  /// File path: assests/icons/profile.svg
+  String get profile => 'assests/icons/profile.svg';
+
   /// File path: assests/icons/search-normal.svg
   String get searchNormal => 'assests/icons/search-normal.svg';
 
   /// List of all assets
-  List<String> get values => [searchNormal];
+  List<String> get values => [bookmark, category, home, profile, searchNormal];
 }
 
 class $AssestsImagesGen {

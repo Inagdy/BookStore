@@ -8,6 +8,7 @@ import 'package:bookkia/feature/auth/presentation/login_sceen.dart';
 import 'package:bookkia/feature/auth/presentation/registerd_screen.dart';
 import 'package:bookkia/feature/book_details/presentation/cubit/book_details_cubit.dart';
 import 'package:bookkia/feature/book_details/presentation/ui/booK_Details_screen.dart';
+import 'package:bookkia/feature/bottom_nav_bar/bottom_nav_bar_screen.dart';
 import 'package:bookkia/feature/welcome/presentation/ui/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +16,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AppRouter {
   static Route? onGeneraRoute(RouteSettings setting) {
     switch (setting.name) {
+      case AppRoute.bottomNavBar:
+        return MaterialPageRoute(
+          builder: (_) => BottomNavBarScreen(),
+        );
       case AppRoute.loginScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -22,13 +27,7 @@ class AppRouter {
             child: LoginSceen(),
           ),
         );
-      case AppRoute.homeScreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => HomeCubit()..getBestsellerBooks(),
-            child: HomeScreen(),
-          ),
-        );
+
       case AppRoute.welcomeScreen:
         return MaterialPageRoute(builder: (_) => WelcomeScreen());
       case AppRoute.registerScreen:

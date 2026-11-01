@@ -5,4 +5,5 @@ class AppRoute {
   static const String registerScreen = "register_screen";
   static const String searchScreen = "search_screen";
   static const String bookDetails = "products/";
+  static const String bottomNavBar = "bottom_nav_bar";
 }
