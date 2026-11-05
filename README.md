@@ -1,4 +1,4 @@
-<img width="1080" height="2340" alt="Screenshot_1793501796" src="https://github.com/user-attachments/assets/5a4573cc-1daa-44e5-bb86-fe91c833611d" />
+<img  width="390" height="844" alt="Screenshot_1793501796" src="https://github.com/user-attachments/assets/5a4573cc-1daa-44e5-bb86-fe91c833611d" />
 # bookkia
 
 
