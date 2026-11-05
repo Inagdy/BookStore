@@ -1,7 +1,9 @@
 import 'package:bookkia/core/routes/app_route.dart';
 import 'package:bookkia/core/theme/app_colors.dart';
+import 'package:bookkia/feature/Home/cubit/home_cubit.dart';
 import 'package:bookkia/feature/Home/data/model/books_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BookItem extends StatelessWidget {
@@ -21,7 +23,11 @@ class BookItem extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, AppRoute.bookDetails,arguments:products?.id );
+          Navigator.pushNamed(
+            context,
+            AppRoute.bookDetails,
+            arguments: products?.id,
+          );
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,12 +55,18 @@ class BookItem extends StatelessWidget {
             20.verticalSpace,
             Text(products?.name ?? ""),
             8.verticalSpace,
-            Row(
-              children: [
-                Expanded(child: Text(products?.price ?? '')),
-                IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart)),
-              ],
-            ),
+           Row(
+                children: [
+                  Expanded(child: Text(products?.price ?? '')),
+                  IconButton(
+                    onPressed: () {
+                      context.read<HomeCubit>().addToCart(products?.id ?? 0);
+                    },
+                    icon: Icon(Icons.shopping_cart),
+                  ),
+                ],
+              ),
+
           ],
         ),
       ),

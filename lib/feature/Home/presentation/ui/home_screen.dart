@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Assets.assests.images.spash.image(width: 99.w, height: 30.h),
-            Spacer(),
+            const Spacer(),
             InkWell(
               onTap: () {
                 Navigator.pushNamed(context, AppRoute.searchScreen);
@@ -37,15 +37,50 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Align(
-              alignment: AlignmentGeometry.centerLeft,
+              alignment: Alignment.centerLeft,
               child: Text(
                 "Best Saller",
-                style: TextStyle(fontWeight: FontWeight(400), fontSize: 24.sp),
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 24.sp,
+                ),
               ),
             ),
+            12.h.verticalSpace,
+            BlocListener<HomeCubit, HomeState>(
+              listener: (context, state) {
+                if (state is AddToCartSuccess) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Book added to cart successfully'),
+                      backgroundColor: Colors.green,
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                } else if (state is AddToCartError) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Failed to add book to cart'),
+                      backgroundColor: Colors.red,
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                }
+              },
+              child: const SizedBox.shrink(),
+            ),
             BlocBuilder<HomeCubit, HomeState>(
+              buildWhen: (previous, current) =>
+                  current is GetBestSaller_loadingState ||
+                  current is GetBestSaller_SuccesState ||
+                  current is GetBestSaller_ErrorState,
               builder: (context, state) {
-                if (state is GetBestSaller_loadingState) {
+                final cubitBooks = context.read<HomeCubit>().bestsellerBooks;
+                final books = (state is GetBestSaller_SuccesState)
+                    ? state.products
+                    : cubitBooks;
+
+                if (state is GetBestSaller_loadingState && books == null) {
                   return Expanded(
                     child: Skeletonizer(
                       enabled: true,
@@ -68,7 +103,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   );
-                } else if (state is GetBestSaller_SuccesState) {
+                } else if (books != null && books.isNotEmpty) {
                   return Expanded(
                     child: GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -77,14 +112,17 @@ class HomeScreen extends StatelessWidget {
                         mainAxisSpacing: 10.h,
                         crossAxisSpacing: 18.w,
                       ),
-
                       itemBuilder: (context, index) =>
-                          BookItem(products: state.products![index]),
-                      itemCount: state.products?.length,
+                          BookItem(products: books[index]),
+                      itemCount: books.length,
                     ),
                   );
+                } else if (state is GetBestSaller_ErrorState) {
+                  return const Expanded(
+                    child: Center(child: Text("Error loading books")),
+                  );
                 } else {
-                  return Center(child: Text("error"));
+                  return const SizedBox.shrink();
                 }
               },
             ),

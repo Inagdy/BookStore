@@ -1,6 +1,8 @@
 import 'package:bookkia/core/theme/app_colors.dart';
 import 'package:bookkia/feature/Home/cubit/home_cubit.dart';
 import 'package:bookkia/feature/Home/presentation/ui/home_screen.dart';
+import 'package:bookkia/feature/cart/presentaition/cart_screen.dart';
+import 'package:bookkia/feature/cart/presentaition/cubit/cart_cubit.dart';
 import 'package:bookkia/feature/profile/presentation/cubit/profile_cubit.dart';
 import 'package:bookkia/feature/profile/presentation/profile_screen.dart';
 import 'package:bookkia/gen/assets.gen.dart';
@@ -28,7 +30,10 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     ),
     BlocProvider(
       create: (context) => HomeCubit()..getBestsellerBooks(),
-      child: HomeScreen(),
+      child: BlocProvider(
+        create: (context) => CartCubit()..getCartData(),
+        child: CartScreen(),
+      ),
     ),
     BlocProvider(
       create: (context) => HomeCubit()..getBestsellerBooks(),

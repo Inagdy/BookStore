@@ -33,4 +33,20 @@ class HomeRepo {
       return null;
     }
   }
+
+  static Future<bool> addToCart(int productId) async {
+    try {
+      final responed = await DioFactore.dio?.post(
+        ApiEndpoint.addToCart,
+        data: {"product_id": productId},
+      );
+      if (responed?.statusCode == 200 || responed?.statusCode == 201) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
+  }
 }
