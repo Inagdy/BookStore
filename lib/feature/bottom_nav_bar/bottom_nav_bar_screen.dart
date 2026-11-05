@@ -1,6 +1,8 @@
 import 'package:bookkia/core/theme/app_colors.dart';
 import 'package:bookkia/feature/Home/cubit/home_cubit.dart';
 import 'package:bookkia/feature/Home/presentation/ui/home_screen.dart';
+import 'package:bookkia/feature/profile/presentation/cubit/profile_cubit.dart';
+import 'package:bookkia/feature/profile/presentation/profile_screen.dart';
 import 'package:bookkia/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,10 +18,25 @@ class BottomNavBarScreen extends StatefulWidget {
 class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   int currentIndex = 0;
   List<Widget> screens = [
-    BlocProvider(create: (context) => HomeCubit()..getBestsellerBooks(), child: HomeScreen()),
-    BlocProvider(create: (context) => HomeCubit()..getBestsellerBooks(), child: HomeScreen()),
-    BlocProvider(create: (context) => HomeCubit()..getBestsellerBooks(), child: HomeScreen()),
-    BlocProvider(create: (context) => HomeCubit()..getBestsellerBooks(), child: HomeScreen()),
+    BlocProvider(
+      create: (context) => HomeCubit()..getBestsellerBooks(),
+      child: HomeScreen(),
+    ),
+    BlocProvider(
+      create: (context) => HomeCubit()..getBestsellerBooks(),
+      child: HomeScreen(),
+    ),
+    BlocProvider(
+      create: (context) => HomeCubit()..getBestsellerBooks(),
+      child: HomeScreen(),
+    ),
+    BlocProvider(
+      create: (context) => HomeCubit()..getBestsellerBooks(),
+      child: BlocProvider(
+        create: (context) => ProfileCubit()..getProfileData(),
+        child: ProfileScreen(),
+      ),
+    ),
   ];
 
   @override

@@ -18,6 +18,7 @@ class _LoginFormState extends State<LoginForm> {
   var formState = GlobalKey<FormState>();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+
   @override
   void dispose() {
     emailController.dispose();
@@ -33,18 +34,26 @@ class _LoginFormState extends State<LoginForm> {
           showDialog(
             context: context,
             barrierDismissible: false,
-            builder: (context) => AlertDialog(
+            builder: (context) => const AlertDialog(
               backgroundColor: Colors.transparent,
+              elevation: 0,
               content: Center(child: CircularProgressIndicator()),
             ),
           );
         } else if (state is LoginSuccessState) {
-          Navigator.pushNamed(context, AppRoute.homeScreen);
-        } else {
-          Navigator.pop(context);
+          Navigator.pop(context); // Dismiss the loading dialog
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            AppRoute.bottomNavBar,
+            (route) => false,
+          );
+        } else if (state is LoginErrrState) {
+          Navigator.pop(context); // Dismiss the loading dialog
           showDialog(
             context: context,
-            builder: (context) => AlertDialog(content: Text("Error")),
+            builder: (context) => const AlertDialog(
+              content: Text("Email or password is incorrect"),
+            ),
           );
         }
       },

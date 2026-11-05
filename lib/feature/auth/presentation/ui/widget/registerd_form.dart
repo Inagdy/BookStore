@@ -33,18 +33,26 @@ class _RegisterdFormState extends State<RegisterdForm> {
           showDialog(
             context: context,
             barrierDismissible: false,
-            builder: (context) => AlertDialog(
+            builder: (context) => const AlertDialog(
               backgroundColor: Colors.transparent,
+              elevation: 0,
               content: Center(child: CircularProgressIndicator()),
             ),
           );
         } else if (state is RegisterSuccessState) {
-          Navigator.pushNamed(context, AppRoute.homeScreen);
-        } else {
-          Navigator.pop(context);
+          Navigator.pop(context); // Dismiss loading dialog
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            AppRoute.bottomNavBar,
+            (route) => false,
+          );
+        } else if (state is RegisterErrorState) {
+          Navigator.pop(context); // Dismiss loading dialog
           showDialog(
             context: context,
-            builder: (context) => AlertDialog(content: Text("Error")),
+            builder: (context) => const AlertDialog(
+              content: Text("Registration Failed. Please try again."),
+            ),
           );
         }
       },
@@ -153,7 +161,7 @@ class _RegisterdFormState extends State<RegisterdForm> {
               leftText: "Already have an account ? ",
               rigthText: " Login Now",
               onRigthTap: () {
-                Navigator.pushNamed(context, AppRoute.homeScreen);
+                Navigator.pushNamed(context, AppRoute.loginScreen);
               },
             ),
             27.verticalSpace,

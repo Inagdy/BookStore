@@ -1,6 +1,5 @@
 import 'package:bookkia/core/routes/app_route.dart';
 import 'package:bookkia/feature/Home/cubit/home_cubit.dart';
-import 'package:bookkia/feature/Home/presentation/ui/home_screen.dart';
 import 'package:bookkia/feature/Home/presentation/ui/search_screen.dart';
 import 'package:bookkia/feature/auth/presentation/cubit/auth_cubit.dart';
 import 'package:bookkia/feature/auth/presentation/cubit/register_cubit.dart';
@@ -17,6 +16,7 @@ class AppRouter {
   static Route? onGeneraRoute(RouteSettings setting) {
     switch (setting.name) {
       case AppRoute.bottomNavBar:
+      case AppRoute.homeScreen:
         return MaterialPageRoute(
           builder: (_) => BottomNavBarScreen(),
         );
