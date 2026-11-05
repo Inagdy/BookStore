@@ -29,5 +29,10 @@
 
 <img width="390" height="844" alt="Screenshot_1793501796" src="https://github.com/user-attachments/assets/031859a2-7353-4312-8f0e-d51e62141f08" />
 
+<img width="390" height="844" alt="Screenshot_1793896823" src="https://github.com/user-attachments/assets/38db86f3-5028-436b-9b5d-719d059b99a1" />
+
+<img width="390" height="844" alt="Screenshot_1793893777" src="https://github.com/user-attachments/assets/8ee20a09-dd6b-470f-9b90-41cd670c11ec" />
+
+
 
 
