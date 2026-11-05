@@ -1,6 +1,4 @@
-<img width="1080" height="2340" alt="Screenshot_1793501796" src="https://github.com/user-attachments/assets/5a4573cc-1daa-44e5-bb86-fe91c833611d" />
-# bookkia
-
+<img  width="390" height="844" alt="Screenshot_1793501796" src="https://github.com/user-attachments/assets/5a4573cc-1daa-44e5-bb86-fe91c833611d" />
 
 <img width="390" height="844" alt="localhost_60024_(iPhone 16) (1)" src="https://github.com/user-attachments/assets/08a597dc-d72e-4c2f-bd29-45af1696cad7" />
 
@@ -29,5 +27,14 @@
 
 <img width="390" height="844" alt="Screenshot_1793501796" src="https://github.com/user-attachments/assets/031859a2-7353-4312-8f0e-d51e62141f08" />
 
+<img width="390" height="844" alt="Screenshot_1793896823" src="https://github.com/user-attachments/assets/38db86f3-5028-436b-9b5d-719d059b99a1" />
+
+<img width="390" height="844" alt="Screenshot_1793893777" src="https://github.com/user-attachments/assets/8ee20a09-dd6b-470f-9b90-41cd670c11ec" />
+
+<img width="390" height="844" alt="Screenshot_1793908273" src="https://github.com/user-attachments/assets/c333fc00-d72a-47e3-8994-2d721f7faf8d" />
+
+<img width="390" height="844" alt="Screenshot_1793908266" src="https://github.com/user-attachments/assets/732a77bc-42ab-4fc8-9d2a-74ed1910e04b" />
+
+<img width="390" height="844" alt="Screenshot_1793908421" src="https://github.com/user-attachments/assets/d41293c0-d91a-4c34-a24b-038febe2a64d" />
 
 
