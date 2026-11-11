@@ -37,4 +37,8 @@
 
 <img width="390" height="844" alt="Screenshot_1793908421" src="https://github.com/user-attachments/assets/d41293c0-d91a-4c34-a24b-038febe2a64d" />
 
+<img width="390" height="844" alt="Screenshot_1794415876" src="https://github.com/user-attachments/assets/2baa4bc9-e704-4eba-abfa-59a3eb0bf5a9" />
+
+<img width="390" height="844" alt="Screenshot_1794417064" src="https://github.com/user-attachments/assets/063f1dbd-2ab1-48d4-b417-c22c6645d3ee" />
+
 
