@@ -6,5 +6,8 @@ sealed class AuthState {}
 final class AuthInitial extends AuthState {}
 final class LoginLoadingState extends AuthState{}
 final class LoginSuccessState extends AuthState{}
-final class LoginErrrState extends AuthState{}
+final class LoginErrrState extends AuthState{
+  final String? error;
+  LoginErrrState({this.error});
+}
 

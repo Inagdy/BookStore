@@ -50,8 +50,10 @@ class _RegisterdFormState extends State<RegisterdForm> {
           Navigator.pop(context); // Dismiss loading dialog
           showDialog(
             context: context,
-            builder: (context) => const AlertDialog(
-              content: Text("Registration Failed. Please try again."),
+            builder: (context) => AlertDialog(
+              content: Text(
+                state.error ?? "Registration Failed. Please try again.",
+              ),
             ),
           );
         }

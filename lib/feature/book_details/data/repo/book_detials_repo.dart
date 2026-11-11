@@ -10,7 +10,6 @@ class BookDetialsRepo {
       );
       if (respond?.statusCode == 200) {
         BookDetialsModel details = BookDetialsModel.fromJson(respond?.data);
-        print(details);
         return details;
       } else {
         return null;

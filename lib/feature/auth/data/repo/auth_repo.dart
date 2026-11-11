@@ -9,19 +9,15 @@ class AuthRepo {
     required String email,
     required String password,
   }) async {
-    try {
-      final response = await DioFactore.dio?.post(
-        ApiEndpoint.login,
-        data: {"email": email, "password": password},
-      );
-      if (response?.statusCode == 200) {
-        String? token = response?.data["data"]["token"];
-        saveToken(token);
-        return true;
-      } else {
-        return false;
-      }
-    } catch (e) {
+    final response = await DioFactore.dio?.post(
+      ApiEndpoint.login,
+      data: {"email": email, "password": password},
+    );
+    if (response?.statusCode == 200) {
+      String? token = response?.data["data"]["token"];
+      await saveToken(token);
+      return true;
+    } else {
       return false;
     }
   }

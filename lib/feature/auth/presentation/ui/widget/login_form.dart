@@ -51,8 +51,8 @@ class _LoginFormState extends State<LoginForm> {
           Navigator.pop(context); // Dismiss the loading dialog
           showDialog(
             context: context,
-            builder: (context) => const AlertDialog(
-              content: Text("Email or password is incorrect"),
+            builder: (context) => AlertDialog(
+              content: Text(state.error ?? "Email or password is incorrect"),
             ),
           );
         }
