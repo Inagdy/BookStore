@@ -5,7 +5,10 @@ sealed class BookDetailsState {}
 
 final class BookDetailsInitial extends BookDetailsState {}
 
-final class GetbookDetailsError extends BookDetailsState {}
+final class GetbookDetailsError extends BookDetailsState {
+  final String? error;
+  GetbookDetailsError({this.error});
+}
 
 final class GetbookDetailsSucces extends BookDetailsState {
   final BookDetialsModel details;

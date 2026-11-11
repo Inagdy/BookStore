@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:bookkia/core/networking/api_error_handling.dart';
 import 'package:bookkia/feature/book_details/data/model/book_detials_model.dart';
 import 'package:bookkia/feature/book_details/data/repo/book_detials_repo.dart';
+import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 
 part 'book_details_state.dart';
@@ -11,12 +13,17 @@ class BookDetailsCubit extends Cubit<BookDetailsState> {
   getDetails(int id) async {
     emit(GetbookDetailsLoading());
 
-    final data = await BookDetialsRepo.getBookDetials(id);
+    try {
+      final data = await BookDetialsRepo.getBookDetials(id);
 
-    if (data is BookDetialsModel) {
-      emit(GetbookDetailsSucces(data));
-    } else {
-      emit(GetbookDetailsError());
+      if (data is BookDetialsModel) {
+        emit(GetbookDetailsSucces(data));
+      } else {
+        emit(GetbookDetailsError());
+      }
+    } on DioException catch (e) {
+      final errorMessage = ApiErrorHandling.handlingDioException(e);
+      emit(GetbookDetailsError(error: errorMessage));
     }
   }
 }
