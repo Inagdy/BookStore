@@ -103,6 +103,12 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   );
+                } else if (state is GetBestSaller_ErrorState) {
+                  return Expanded(
+                    child: Center(
+                      child: Text(state.message ?? "Error loading books"),
+                    ),
+                  );
                 } else if (books != null && books.isNotEmpty) {
                   return Expanded(
                     child: GridView.builder(
@@ -116,10 +122,6 @@ class HomeScreen extends StatelessWidget {
                           BookItem(products: books[index]),
                       itemCount: books.length,
                     ),
-                  );
-                } else if (state is GetBestSaller_ErrorState) {
-                  return const Expanded(
-                    child: Center(child: Text("Error loading books")),
                   );
                 } else {
                   return const SizedBox.shrink();

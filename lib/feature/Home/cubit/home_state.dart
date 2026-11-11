@@ -12,7 +12,14 @@ final class GetBestSaller_SuccesState extends HomeState {
   GetBestSaller_SuccesState(this.products);
 }
 
-final class GetBestSaller_ErrorState extends HomeState {}
+final class GetBestSaller_ErrorState extends HomeState {
+  final String? message;
+  GetBestSaller_ErrorState(this.message );
+}
+
+
+
+
 
 final class SearchLoading extends HomeState {}
 
@@ -23,6 +30,11 @@ final class SearchLSuccess extends HomeState {
   SearchLSuccess(this.products);
 }
 
+
+
+
 final class AddToCartLoading extends HomeState {}
 final class AddToCartSuccess extends HomeState {}
-final class AddToCartError extends HomeState {}
+final class AddToCartError extends HomeState {
+
+}

@@ -3,8 +3,8 @@ import 'package:bookkia/core/networking/dio_factore.dart';
 import 'package:bookkia/feature/Home/data/model/books_model.dart';
 
 class HomeRepo {
-  static Future<BookModel?>? getBestsellerBooks() async {
-    try {
+  static Future<BookModel?> getBestsellerBooks() async {
+
       final reponed = await DioFactore.dio?.get(ApiEndpoint.bestSeller);
       if (reponed?.statusCode == 200) {
         BookModel books = BookModel.fromJson(reponed?.data);
@@ -12,13 +12,10 @@ class HomeRepo {
       } else {
         return null;
       }
-    } catch (e) {
-      return null;
-    }
   }
 
   static Future<List<Products?>?> searchProducts(String text) async {
-    try {
+
       final responed = await DioFactore.dio?.get(
         ApiEndpoint.search,
         queryParameters: {"name": text},
@@ -29,13 +26,11 @@ class HomeRepo {
       } else {
         return null;
       }
-    } catch (e) {
-      return null;
-    }
+    
   }
 
   static Future<bool> addToCart(int productId) async {
-    try {
+
       final responed = await DioFactore.dio?.post(
         ApiEndpoint.addToCart,
         data: {"product_id": productId},
@@ -45,8 +40,6 @@ class HomeRepo {
       } else {
         return false;
       }
-    } catch (e) {
-      return false;
-    }
+
   }
 }

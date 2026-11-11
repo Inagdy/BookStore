@@ -14,5 +14,5 @@ final class GetCartSuccess extends CartState {
 
 final class GetCartError extends CartState {
   final String message;
-  GetCartError([this.message = 'Failed to load cart']);
+  GetCartError(this.message);
 }
